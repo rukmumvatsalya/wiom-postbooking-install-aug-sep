@@ -1,0 +1,539 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The queue grew, the anger moved — Wiom booking-to-install chat, Aug vs Sep 2026</title><style>:root{
+  color-scheme:light;
+  --ground:#f5f6f7; --paper:#ffffff; --sunk:#eef0f2;
+  --ink:#12151a; --ink2:#5a626c; --ink3:#8b929b;
+  --rule:#dce0e4; --rule2:#eaedef;
+  --aug:#2a78d6; --sep:#eb6834;
+  --pos:#128a5f; --neg:#c93a39;
+  --posbg:#e6f4ee; --negbg:#fbeaea; --warnbg:#fbf1e0; --warn:#8a6300;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans Devanagari",sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme=light])){
+  color-scheme:dark;
+  --ground:#101215; --paper:#171a1e; --sunk:#1e2226;
+  --ink:#f2f4f6; --ink2:#a8afb8; --ink3:#767d86;
+  --rule:#2a2e34; --rule2:#22262b;
+  --aug:#3987e5; --sep:#d95926;
+  --pos:#3fb98c; --neg:#e66767;
+  --posbg:#12241d; --negbg:#26191a; --warnbg:#241d10; --warn:#d9a441;
+}}
+:root[data-theme=dark]{
+  color-scheme:dark;
+  --ground:#101215; --paper:#171a1e; --sunk:#1e2226;
+  --ink:#f2f4f6; --ink2:#a8afb8; --ink3:#767d86;
+  --rule:#2a2e34; --rule2:#22262b;
+  --aug:#3987e5; --sep:#d95926;
+  --pos:#3fb98c; --neg:#e66767;
+  --posbg:#12241d; --negbg:#26191a; --warnbg:#241d10; --warn:#d9a441;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+  font-size:16.5px;line-height:1.62;font-variant-numeric:tabular-nums;
+  -webkit-font-smoothing:antialiased}
+.page{max-width:1180px;margin:0 auto;padding:0 28px 120px}
+p{margin:0 0 15px;color:var(--ink2);max-width:68ch}
+p strong,b{color:var(--ink);font-weight:650}
+em{font-style:italic}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--aug);outline-offset:2px}
+
+/* ---------- masthead ---------- */
+.mast{padding:64px 0 34px;border-bottom:2px solid var(--ink)}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:22px}
+.mast h1{font-size:clamp(31px,4.5vw,47px);line-height:1.06;letter-spacing:-.033em;
+  font-weight:700;margin:0 0 21px;max-width:22ch;text-wrap:balance}
+.standfirst{font-size:19px;line-height:1.5;color:var(--ink2);max-width:60ch;margin:0}
+.mastmeta{display:flex;flex-wrap:wrap;gap:0 34px;margin-top:30px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--ink3)}
+.mastmeta span b{color:var(--ink2);font-weight:400}
+
+/* ---------- section scaffold ---------- */
+.sec{display:grid;grid-template-columns:168px minmax(0,1fr);gap:44px;
+  padding:52px 0;border-bottom:1px solid var(--rule)}
+.sec:last-of-type{border-bottom:none}
+.rail{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink3);line-height:1.6}
+.rail .rnote{display:block;margin-top:10px;letter-spacing:.02em;text-transform:none;
+  font-size:12px;color:var(--ink3);line-height:1.55}
+.body h2{font-size:27px;line-height:1.2;letter-spacing:-.025em;font-weight:700;
+  margin:0 0 16px;max-width:24ch;text-wrap:balance}
+.body h3{font-size:17px;letter-spacing:-.008em;font-weight:650;margin:38px 0 12px}
+.body>*:first-child{margin-top:0}
+@media (max-width:860px){
+  .sec{grid-template-columns:1fr;gap:14px;padding:40px 0}
+  .rail{padding-bottom:4px;border-bottom:1px solid var(--rule2)}
+  .rail .rnote{display:none}
+}
+
+/* ---------- headline finding ---------- */
+.finding{padding:46px 0;border-bottom:1px solid var(--rule)}
+.finding .lead{font-size:clamp(21px,2.6vw,27px);line-height:1.34;letter-spacing:-.02em;
+  font-weight:650;color:var(--ink);max-width:30ch;margin:0 0 26px;text-wrap:balance}
+.keys{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);margin:30px 0 0}
+.key{background:var(--paper);padding:19px 20px 17px}
+.key .klab{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:13px;line-height:1.5}
+.key .kfig{font-family:var(--mono);font-size:26px;font-weight:600;letter-spacing:-.04em;
+  line-height:1;display:flex;align-items:baseline;gap:7px}
+.key .kfig .arw{color:var(--ink3);font-size:16px}
+.key .kdelta{font-family:var(--mono);font-size:12.5px;font-weight:600;margin-top:11px;letter-spacing:.01em}
+.key .knote{font-size:12.5px;color:var(--ink3);margin-top:5px;line-height:1.45}
+.pos{color:var(--pos)} .neg{color:var(--neg)}
+
+/* ---------- funnel ---------- */
+.fun{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);
+  border:1px solid var(--rule);margin:6px 0 0}
+@media (max-width:760px){.fun{grid-template-columns:1fr}}
+.fcol{background:var(--paper);padding:22px 24px 24px}
+.fhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  padding-bottom:14px;margin-bottom:18px;border-bottom:1px solid var(--rule)}
+.fhead .fname{font-size:17px;font-weight:650;letter-spacing:-.015em}
+.fhead .fdays{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink3);text-transform:uppercase}
+.stg{margin-bottom:17px}
+.stg .sl{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:7px}
+.stg .sname{font-size:14px;color:var(--ink2)}
+.stg .sval{font-family:var(--mono);font-size:19px;font-weight:600;letter-spacing:-.03em;white-space:nowrap}
+.stg .bar{height:6px;background:var(--sunk);position:relative;overflow:hidden}
+.stg .bar i{position:absolute;inset:0 auto 0 0;display:block}
+.stg .spct{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink3);margin-top:6px}
+.stg.gap .bar{background:repeating-linear-gradient(135deg,transparent,transparent 4px,var(--rule) 4px,var(--rule) 5px)}
+.stg.gap .sval{color:var(--ink3)}
+.stg.inset{padding-left:18px;border-left:1px solid var(--rule)}
+.fout{margin-top:22px;padding-top:18px;border-top:1px solid var(--rule)}
+.fout .oh{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:13px}
+.orow{display:flex;justify-content:space-between;gap:12px;padding:6px 0;font-size:14px;color:var(--ink2);
+  border-bottom:1px solid var(--rule2)}
+.orow:last-child{border-bottom:none}
+.orow b{font-family:var(--mono);color:var(--ink);font-weight:600;white-space:nowrap;font-size:13.5px}
+
+/* ---------- per-1000 ledger ---------- */
+.ledger{border:1px solid var(--rule);background:var(--paper);margin:6px 0 0}
+.lhead{display:grid;grid-template-columns:minmax(0,1fr) 76px 76px 74px;gap:14px;
+  padding:13px 20px;border-bottom:1px solid var(--rule);background:var(--sunk);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3)}
+.lhead span:not(:first-child){text-align:right}
+.lrow{display:grid;grid-template-columns:minmax(0,1fr) 76px 76px 74px;gap:14px;
+  padding:12px 20px;border-bottom:1px solid var(--rule2);align-items:center;font-size:14.5px;color:var(--ink2)}
+.lrow:last-child{border-bottom:none}
+.lrow.head{color:var(--ink);font-weight:650}
+.lrow .lv{font-family:var(--mono);font-size:16px;font-weight:600;text-align:right;letter-spacing:-.02em}
+.lrow .ld{font-family:var(--mono);font-size:13px;font-weight:600;text-align:right}
+
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;border:1px solid var(--rule);background:var(--paper);margin:18px 0}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+thead th{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--ink3);font-weight:400;text-align:right;padding:13px 16px;background:var(--sunk);
+  border-bottom:1px solid var(--rule);white-space:nowrap;position:sticky;top:0}
+thead th.l{text-align:left}
+tbody td{padding:13px 16px;text-align:right;border-bottom:1px solid var(--rule2);
+  white-space:nowrap;color:var(--ink2);font-family:var(--mono);font-size:13.5px}
+tbody td.l{text-align:left;white-space:normal;font-family:var(--sans);font-size:14.5px;color:var(--ink)}
+tbody tr:last-child td{border-bottom:none}
+tbody td.l b{font-weight:650}
+.sub{display:block;font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.03em;margin-top:3px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;
+  text-transform:uppercase;padding:3px 8px;border:1px solid currentColor}
+.t-aug{color:var(--aug)} .t-sep{color:var(--sep)}
+.t-good{color:var(--pos);background:var(--posbg);border-color:transparent}
+.t-poor{color:var(--neg);background:var(--negbg);border-color:transparent}
+.t-watch{color:var(--warn);background:var(--warnbg);border-color:transparent}
+
+/* ---------- callout ---------- */
+.callout{border-left:2px solid var(--ink3);padding:2px 0 2px 20px;margin:24px 0;
+  font-size:14.5px;color:var(--ink2)}
+.callout > b:first-child{display:block;color:var(--ink);margin-bottom:5px;font-weight:650}
+.callout p{margin:0;font-size:14.5px}
+
+/* ---------- numbered actions ---------- */
+.acts{border-top:1px solid var(--rule);margin-top:8px}
+.act{display:grid;grid-template-columns:46px minmax(0,1fr);gap:22px;
+  padding:30px 0;border-bottom:1px solid var(--rule)}
+.act .num{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--ink3);
+  letter-spacing:-.04em;line-height:1;padding-top:3px}
+.act h3{margin:0 0 5px;font-size:19px;letter-spacing:-.018em;font-weight:650}
+.act .sig{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--sep);margin-bottom:13px}
+.act p{margin:0 0 15px;font-size:14.5px}
+.quotes{margin:0;padding:0;list-style:none;border-top:1px solid var(--rule2)}
+.quotes li{font-size:14px;color:var(--ink);padding:9px 0 9px 16px;border-bottom:1px solid var(--rule2);
+  position:relative}
+.quotes li::before{content:"";position:absolute;left:0;top:15px;width:6px;height:1px;background:var(--ink3)}
+.do{margin-top:15px;padding-top:14px;border-top:1px solid var(--rule);font-size:14.5px;color:var(--ink2)}
+.do b{color:var(--ink);font-weight:650}
+@media (max-width:860px){.act{grid-template-columns:1fr;gap:8px}.act .num{font-size:19px}}
+
+/* ---------- lists ---------- */
+ul.plain{margin:0;padding:0;list-style:none;border-top:1px solid var(--rule2)}
+ul.plain li{padding:13px 0;border-bottom:1px solid var(--rule2);color:var(--ink2);font-size:15px;max-width:70ch}
+ul.plain li b{color:var(--ink)}
+ol.steps{margin:0;padding-left:22px;color:var(--ink2)}
+ol.steps li{margin-bottom:11px;max-width:68ch}
+ol.steps li b{color:var(--ink)}
+
+/* ---------- chart ---------- */
+.chart{width:100%;height:auto;display:block}
+.cw{border:1px solid var(--rule);background:var(--paper);padding:18px 16px 10px;margin:18px 0}
+.grid{stroke:var(--rule2)} .div{stroke:var(--rule);stroke-dasharray:2 3}
+.ax{fill:var(--ink3);font-size:10px;font-family:var(--mono);letter-spacing:.04em}
+.legend{display:flex;gap:22px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px}
+.legend i{display:inline-block;width:9px;height:9px;margin-right:7px;vertical-align:0}
+
+/* ---------- glossary + colophon ---------- */
+.gloss{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1px;
+  background:var(--rule);border:1px solid var(--rule)}
+.gterm{background:var(--paper);padding:17px 19px}
+.gterm dt{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink3);margin-bottom:7px}
+.gterm dd{margin:0;font-size:14px;color:var(--ink2);line-height:1.5}
+.colophon{margin-top:52px;padding-top:22px;border-top:2px solid var(--ink);
+  font-family:var(--mono);font-size:11.5px;line-height:1.75;color:var(--ink3);letter-spacing:.02em;max-width:80ch}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ---------- installed experience matrix ---------- */
+.mtxwrap{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:20px 0}
+@media (max-width:760px){.mtxwrap{grid-template-columns:1fr}}
+.mtxcol{background:var(--paper);padding:20px 22px 22px}
+.mtxhead{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+.mtxhead .mname{font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase;font-weight:600}
+.mtxhead .mtot{font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.04em}
+.mtx{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:4px}
+.mtx .mh{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink3);
+  padding:0 0 6px;align-self:end}
+.mtx .mh.r{text-align:center}
+.mtx .ml{font-size:12px;color:var(--ink2);display:flex;align-items:center;line-height:1.25}
+.mtx .mc{border-radius:6px;padding:11px 6px 10px;text-align:center;border:1px solid var(--rule2)}
+.mtx .mc .cn{font-family:var(--mono);font-size:17px;font-weight:600;letter-spacing:-.02em;line-height:1}
+.mtx .mc .cp{font-family:var(--mono);font-size:10.5px;color:var(--ink3);margin-top:4px}
+.mtx .mc.hot .cn{color:#fff} .mtx .mc.hot .cp{color:rgba(255,255,255,.82)}
+
+/* ---------- combined 4-col cancel matrix (full width, grouped) ---------- */
+.cmtxcol{background:var(--paper);border:1px solid var(--rule);padding:20px 22px 22px;margin:16px 0}
+.cmtx{display:grid;grid-template-columns:1.25fr 1fr 1fr 1fr 1fr;gap:4px;min-width:560px}
+.cmtxscroll{overflow-x:auto}
+.cmtx .cg{padding:2px 0 8px;text-align:center;font-family:var(--mono);font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--rule)}
+.cmtx .cg.wiomgrp{border-left:1px solid var(--rule)}
+.cmtx .mh{font-family:var(--mono);font-size:9px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink3);
+  padding:8px 2px 6px;align-self:end;text-align:center}
+.cmtx .mh.gap{border-left:1px solid var(--rule2)}
+.cmtx .ml{font-size:12px;color:var(--ink2);display:flex;align-items:center;line-height:1.25}
+.cmtx .mc{border-radius:6px;padding:11px 4px 10px;text-align:center;border:1px solid var(--rule2)}
+.cmtx .mc.gap{margin-left:2px}
+.cmtx .mc .cn{font-family:var(--mono);font-size:16px;font-weight:600;letter-spacing:-.02em;line-height:1}
+.cmtx .mc .cp{font-family:var(--mono);font-size:10px;color:var(--ink3);margin-top:4px}
+.cmtx .mc.hot .cn{color:#fff} .cmtx .mc.hot .cp{color:rgba(255,255,255,.82)}
+
+/* ---------- chip → response catalog ---------- */
+.cat{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:20px 0}
+.catitem{background:var(--paper);padding:15px 20px;display:grid;grid-template-columns:220px 1fr;gap:22px;align-items:start}
+@media(max-width:720px){.catitem{grid-template-columns:1fr;gap:11px}}
+.catchip{display:inline-block;font-family:var(--sans);font-weight:600;font-size:13px;line-height:1.35;
+  background:var(--sunk);border:1px solid var(--rule);border-radius:14px;padding:6px 13px;color:var(--ink)}
+.cata{display:grid;gap:9px;min-width:0}
+.catrow{display:grid;grid-template-columns:150px 1fr;gap:16px;align-items:baseline}
+.catrow.single{grid-template-columns:1fr}
+.catstate{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--sep);
+  white-space:normal;line-height:1.4}
+.cattext{font-size:13px;color:var(--ink2);line-height:1.5}
+.cattext b{color:var(--ink)}
+
+/* ---------- chips-per-page (menu by context) ---------- */
+.pmenu{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:20px 0}
+.pmrow{background:var(--paper);padding:15px 20px;display:grid;grid-template-columns:230px 1fr;gap:22px;align-items:start}
+@media(max-width:720px){.pmrow{grid-template-columns:1fr;gap:11px}}
+.pmname{font-weight:650;font-size:13.5px;color:var(--ink);line-height:1.3}
+.pmname .sub{display:block;font-family:var(--mono);font-size:10.5px;color:var(--ink3);letter-spacing:.03em;margin-top:4px;text-transform:none}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:12.5px;
+  background:var(--sunk);border:1px solid var(--rule);border-radius:15px;padding:6px 8px 6px 13px;color:var(--ink)}
+.pill i{font-style:normal;font-family:var(--mono);font-size:10.5px;font-weight:600;color:var(--ink3);
+  background:var(--paper);border:1px solid var(--rule);border-radius:9px;padding:2px 7px}
+
+/* ---------- self-cancel deep-dive ---------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border:1px solid var(--rule);margin:20px 0}
+@media(max-width:820px){.two{grid-template-columns:1fr}}
+.tcol{background:var(--paper);padding:22px 24px 24px}
+.tcap{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:3px}
+.tcap.w{color:var(--aug)} .tcap.d{color:var(--sep)}
+.tsub{font-family:var(--mono);font-size:11px;color:var(--ink3);margin-bottom:18px}
+.ibs{display:grid;gap:8px;margin:6px 0 4px}
+.ib{display:grid;grid-template-columns:150px 1fr 40px;gap:12px;align-items:center}
+.ibl{font-size:12.5px;color:var(--ink2);line-height:1.25}
+.ibar{height:15px;background:var(--rule2);border-radius:4px;overflow:hidden}
+.ibar i{display:block;height:100%;border-radius:4px}
+.ibp{font-family:var(--mono);font-size:12px;font-weight:600;text-align:right}
+.vbs{display:flex;flex-wrap:wrap;gap:7px;margin:6px 0}
+.vbchip{display:inline-flex;align-items:center;gap:7px;font-size:12px;background:var(--sunk);border:1px solid var(--rule);border-radius:13px;padding:5px 7px 5px 11px;color:var(--ink)}
+.vbchip i{font-style:normal;font-family:var(--mono);font-size:10px;color:var(--ink3);background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:1px 6px}
+.rl{display:grid;gap:7px;margin:6px 0}
+.rli{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:baseline;padding:9px 0;border-top:1px solid var(--rule2)}
+.rlt{font-size:12.5px;color:var(--ink2);line-height:1.4}
+.rln{font-family:var(--mono);font-size:11px;color:var(--ink3)}
+.shdr{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin:18px 0 8px}
+
+/* ---------- section index / nav ---------- */
+html{scroll-behavior:smooth}
+.sec{scroll-margin-top:14px}
+.toc{border:1px solid var(--rule);background:var(--paper);margin:24px 0;padding:20px 24px 22px}
+.toc h3{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin:0 0 15px;font-weight:400}
+.tocgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:5px 26px}
+.tocgrid a{display:flex;gap:11px;font-size:13px;color:var(--ink2);text-decoration:none;padding:5px 0;border:0;align-items:baseline;line-height:1.3}
+.tocgrid a:hover{color:var(--aug)}
+.tocgrid a .n{font-family:var(--mono);font-size:11px;color:var(--ink3);min-width:18px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ---------- index as fixed LEFT sidebar on wide screens ---------- */
+@media (min-width:1120px){
+  body{padding-left:270px}
+  .toc{position:fixed;top:0;left:0;width:270px;height:100dvh;overflow-y:auto;margin:0;z-index:5;
+       border:0;border-right:1px solid var(--rule);border-radius:0;padding:30px 22px 44px;background:var(--paper)}
+  .toc h3{margin:0 0 16px}
+  .tocgrid{grid-template-columns:1fr;gap:1px}
+  .tocgrid a{padding:6px 0;font-size:12.5px}
+  .tocgrid a .n{min-width:20px}
+}
+
+.mono{font-family:var(--mono);font-size:.92em;letter-spacing:-.01em;color:var(--ink2)}
+</style></head><body><div class="page">
+<header class="mast">
+<div class="kicker">Post-booking chat &middot; booking to installation &middot; 13&ndash;30 Aug vs 1&ndash;20 Sep 2026</div>
+<h1>Bookings grew 45% a day. The share that reached a live connection fell.</h1>
+<p class="standfirst">What booked customers ask while they wait &mdash; and where the journey now breaks.
+The slot-breach crisis of the last report has eased. Two new problems took its place.</p>
+<div class="mastmeta">
+<span><b>Bookings</b> &nbsp;4,376 &nbsp;/&nbsp; 7,045</span>
+<span><b>Install rate</b> &nbsp;41.2% &nbsp;/&nbsp; 36.0%</span>
+<span><b>Messages</b> &nbsp;220,435</span>
+<span><b>Install-queue chatters</b> &nbsp;5,105 &nbsp;/&nbsp; 7,253</span>
+</div></header>
+<div class="finding">
+<p class="lead">We are winning many more bookings and converting a smaller share of them &mdash; and the
+bottleneck is a single step.</p>
+<p>Bookings per day went from <b>243 to 352</b>. The share that
+ends in a live connection fell from <b>41.2% to 36.0%</b>. Almost the entire loss sits in one place:
+<b>slot confirmed &rarr; technician assigned</b>, which now sheds 38.6% of all
+bookings, up from 32.9%. Everything before that step runs at 99%+.</p>
+<p>The good news is real. The slot-breach population &mdash; the angriest group in the last report &mdash; shrank
+31% per day, and installs now complete faster
+(25.1h to 24.7h median). The bad news is that two quieter
+problems grew in its place: cancel-and-refund chatter, and a growing population who never talk to us at all.</p>
+<div class="keys">
+<div class="key"><div class="klab">Bookings reaching<br>a live connection</div><div class="kfig"><span style="color:var(--aug)">41.2%</span><span class="arw">&rarr;</span><span style="color:var(--sep)">36.0%</span></div><div class="kdelta neg">-5.2pp</div><div class="knote">Cohorted on booking date</div></div>
+<div class="key"><div class="klab">Bookings<br>per day</div><div class="kfig"><span style="color:var(--aug)">243</span><span class="arw">&rarr;</span><span style="color:var(--sep)">352</span></div><div class="kdelta pos">+45%</div><div class="knote">Demand is not the problem</div></div>
+<div class="key"><div class="klab">Slot-breach messages<br>per day</div><div class="kfig"><span style="color:var(--aug)">514</span><span class="arw">&rarr;</span><span style="color:var(--sep)">352</span></div><div class="kdelta pos">-31%</div><div class="knote">The last report’s worst tier, easing</div></div>
+<div class="key"><div class="klab">Cancel / refund messages<br>per day</div><div class="kfig"><span style="color:var(--aug)">74</span><span class="arw">&rarr;</span><span style="color:var(--sep)">121</span></div><div class="kdelta neg">+63%</div><div class="knote">Frustration here rose to 24.1%</div></div>
+</div></div>
+<nav class="toc"><h3>Contents &mdash; jump to a section</h3><div class="tocgrid"><a href="#scope"><span class="n">01</span>Scope &amp; a data break</a><a href="#funnel"><span class="n">02</span>The funnel</a><a href="#the-step"><span class="n">03</span>The one step</a><a href="#who-chats"><span class="n">04</span>Who is chatting</a><a href="#install-queue"><span class="n">05</span>The install queue</a><a href="#slot-breach"><span class="n">06</span>Slot breach</a><a href="#cancels"><span class="n">07</span>Why bookings cancel</a><a href="#silent"><span class="n">08</span>The silent cohort</a><a href="#chips"><span class="n">09</span>Chips &amp; verbatims</a><a href="#what-to-fix"><span class="n">10</span>What to fix</a><a href="#limits"><span class="n">11</span>Limits</a><a href="#glossary"><span class="n">12</span>Glossary</a></div></nav>
+<section id="scope" class="sec"><div class="rail">Scope &amp; a data break<span class="rnote">The August window starts 13 Aug, not 10. This is forced by the data.</span></div><div class="body">
+<h2>Why August starts on the 13th</h2>
+<div class="callout"><b>The install-journey states did not exist before 13 August 2026</b>
+<p>On 12 August the chat recorded 9 distinct <span class="mono">USER_STATE</span> values. On 13 August it
+recorded 23. Every booking-to-install state &mdash; slot confirmed, technician assigned, slot breached, address
+pending &mdash; has <b>zero rows before that date</b>, and the coarse <span class="mono">ACTIVE</span> state was
+retired the same week in favour of <span class="mono">ACTIVE_PRE_EXPIRY</span>. This was a state-vocabulary
+release, not a change in customer behaviour.</p>
+<p>Including 10&ndash;12 August would therefore add three days of structural zeros and understate every
+August install figure. <b>The install-side window in this report is 13&ndash;30 August
+(18 days) against 1&ndash;20 September (20 days)</b>, and
+every comparison is expressed per day or per customer so the unequal lengths do not distort it.</p></div>
+<p>One more vocabulary break to know about: <span class="mono">INSTALLATION_COMPLETED</span> stopped being
+written on 27 August. The “just installed” tier below is affected by that and should not be read as a trend.</p></div></section>
+<section id="funnel" class="sec"><div class="rail">The funnel<span class="rnote">Cohorted on booking date; later stages counted at any time since.</span></div><div class="body">
+<h2>From a confirmed booking to a live connection</h2>
+<p>Both cohorts are customers who confirmed a booking inside the window, followed forward. The first four
+steps are effectively simultaneous in the current flow &mdash; fee, address and slot all clear at 99%+. The
+journey only has one real cliff.</p>
+<div class="fun"><div class="fcol"><div class="fhead"><span class="fname">13–30 August</span><span class="fdays">18 days &middot; 243/day</span></div><div class="stg"><div class="sl"><span class="sname">Booked</span><span class="sval">4,376</span></div><div class="bar"><i style="width:100.0%;background:var(--aug)"></i></div><div class="spct">100.0%</div></div><div class="stg"><div class="sl"><span class="sname">Paid booking fee</span><span class="sval">4,343</span></div><div class="bar"><i style="width:99.2%;background:var(--aug)"></i></div><div class="spct">99.2% &middot; -0.8pp</div></div><div class="stg"><div class="sl"><span class="sname">Address given</span><span class="sval">4,356</span></div><div class="bar"><i style="width:99.5%;background:var(--aug)"></i></div><div class="spct">99.5% &middot; +0.3pp</div></div><div class="stg"><div class="sl"><span class="sname">Slot confirmed</span><span class="sval">4,322</span></div><div class="bar"><i style="width:98.8%;background:var(--aug)"></i></div><div class="spct">98.8% &middot; -0.7pp</div></div><div class="stg gap"><div class="sl"><span class="sname">Technician assigned</span><span class="sval">2,882</span></div><div class="bar"><i style="width:65.9%;background:var(--aug)"></i></div><div class="spct">65.9% &middot; -32.9pp</div></div><div class="stg gap"><div class="sl"><span class="sname">Technician arrived</span><span class="sval">1,900</span></div><div class="bar"><i style="width:43.4%;background:var(--aug)"></i></div><div class="spct">43.4% &middot; -22.5pp</div></div><div class="stg"><div class="sl"><span class="sname">Installed</span><span class="sval">1,804</span></div><div class="bar"><i style="width:41.2%;background:var(--aug)"></i></div><div class="spct">41.2% &middot; -2.2pp</div></div><div class="fout"><div class="oh">Outcomes</div><div class="orow"><span>Cancelled</span><b>2,662 (60.8%)</b></div><div class="orow"><span>&mdash; Wiom cancelled (unserviceable)</span><b>1,797</b></div><div class="orow"><span>&mdash; customer cancelled</span><b>865</b></div><div class="orow"><span>Refunded</span><b>2,583</b></div></div></div><div class="fcol"><div class="fhead"><span class="fname">1–20 September</span><span class="fdays">20 days &middot; 352/day</span></div><div class="stg"><div class="sl"><span class="sname">Booked</span><span class="sval">7,045</span></div><div class="bar"><i style="width:100.0%;background:var(--sep)"></i></div><div class="spct">100.0%</div></div><div class="stg"><div class="sl"><span class="sname">Paid booking fee</span><span class="sval">7,029</span></div><div class="bar"><i style="width:99.8%;background:var(--sep)"></i></div><div class="spct">99.8% &middot; -0.2pp</div></div><div class="stg"><div class="sl"><span class="sname">Address given</span><span class="sval">7,040</span></div><div class="bar"><i style="width:99.9%;background:var(--sep)"></i></div><div class="spct">99.9% &middot; +0.1pp</div></div><div class="stg"><div class="sl"><span class="sname">Slot confirmed</span><span class="sval">7,019</span></div><div class="bar"><i style="width:99.6%;background:var(--sep)"></i></div><div class="spct">99.6% &middot; -0.3pp</div></div><div class="stg gap"><div class="sl"><span class="sname">Technician assigned</span><span class="sval">4,299</span></div><div class="bar"><i style="width:61.0%;background:var(--sep)"></i></div><div class="spct">61.0% &middot; -38.6pp</div></div><div class="stg gap"><div class="sl"><span class="sname">Technician arrived</span><span class="sval">2,716</span></div><div class="bar"><i style="width:38.6%;background:var(--sep)"></i></div><div class="spct">38.6% &middot; -22.4pp</div></div><div class="stg"><div class="sl"><span class="sname">Installed</span><span class="sval">2,534</span></div><div class="bar"><i style="width:36.0%;background:var(--sep)"></i></div><div class="spct">36.0% &middot; -2.6pp</div></div><div class="fout"><div class="oh">Outcomes</div><div class="orow"><span>Cancelled</span><b>4,171 (59.2%)</b></div><div class="orow"><span>&mdash; Wiom cancelled (unserviceable)</span><b>3,485</b></div><div class="orow"><span>&mdash; customer cancelled</span><b>689</b></div><div class="orow"><span>Refunded</span><b>4,117</b></div></div></div></div>
+<div class="callout"><b>These figures will not match the ops “Booking To Install” sheet exactly</b>
+<p>That sheet reports 7,953 bookings and 32.3% install for 1&ndash;20 September against
+7,045 and 36.0% here. The gap is definitional: this report cohorts on a
+<span class="mono">booking_confirmed</span> event for a valid 10-digit mobile in the raw event log, while the
+sheet is built from its own pipeline with a partner-exit filter applied. <b>The direction and the shape of
+the funnel agree &mdash; install rate down, assignment the bottleneck &mdash; and that is what to rely on.</b>
+Use the ops sheet for absolute booking counts; use this for the chat-linked analysis.</p></div>
+<div class="callout"><b>September installs are right-censored</b>
+<p>A customer who booked on 20 September has had a day to be installed. The median install takes
+24.7 hours and 48.0% complete inside 24 hours, so the
+censoring is small &mdash; but September’s 36.0% is a slight floor, not a ceiling. August, with a month of
+runway, is the more complete read.</p></div></div></section>
+<section id="the-step" class="sec"><div class="rail">The one step<span class="rnote">Everything else in the journey is working.</span></div><div class="body">
+<h2>Slot confirmed &rarr; technician assigned is the whole problem</h2>
+<p>65.9% of August bookings and 61.0% of September bookings ever got a technician assigned.
+That single transition loses more customers than every other step in the journey combined, and it got
+<b>5.7 points worse</b> between the windows while demand rose.</p>
+<div class="ibs"><div class="ib"><div class="ibl">Slot confirmed → assigned (Aug)</div><div class="ibar"><i style="width:85.2%;background:var(--sep)"></i></div><div class="ibp">-32.9pp</div></div><div class="ib"><div class="ibl">Slot confirmed → assigned (Sep)</div><div class="ibar"><i style="width:100.0%;background:var(--sep)"></i></div><div class="ibp">-38.6pp</div></div><div class="ib"><div class="ibl">Assigned → arrived (Aug)</div><div class="ibar"><i style="width:58.3%;background:var(--sep)"></i></div><div class="ibp">-22.5pp</div></div><div class="ib"><div class="ibl">Assigned → arrived (Sep)</div><div class="ibar"><i style="width:58.0%;background:var(--sep)"></i></div><div class="ibp">-22.4pp</div></div></div>
+<p>The second-largest leak, <b>assigned &rarr; arrived</b>, is stable at about 22 points in
+both windows. It is a big loss but not a growing one. The assignment step is the one that is deteriorating.</p>
+<p>Once a technician actually arrives, the job almost always completes: 95% of August arrivals and 93% of September arrivals ended in an install. Field execution is not the constraint; getting a partner to accept the job is.</p>
+<div class="ledger"><div class="lhead"><span>Install speed, completed installs only</span><span>13–30 Aug</span><span>1–20 Sep</span><span>Change</span></div><div class="lrow head"><span>Median booking &rarr; installed</span><span class="lv" style="color:var(--aug)">25.1h</span><span class="lv" style="color:var(--sep)">24.7h</span><span class="ld pos">-2%</span></div><div class="lrow"><span>Done inside 24 hours</span><span class="lv" style="color:var(--aug)">46.7%</span><span class="lv" style="color:var(--sep)">48.0%</span><span class="ld pos">+1.3pp</span></div><div class="lrow"><span>Took more than 3 days</span><span class="lv" style="color:var(--aug)">17.3%</span><span class="lv" style="color:var(--sep)">13.8%</span><span class="ld pos">-3.5pp</span></div></div>
+<p>For the customers we do install, the experience got faster on every measure.</p></div></section>
+<section id="who-chats" class="sec"><div class="rail">Who is chatting<span class="rnote">Six tiers by what the customer is actually there for.</span></div><div class="body">
+<h2>Three quarters of “post-booking” chat is not about installation at all</h2>
+<p>This chat surface is keyed on customer state, and the largest states by far are existing customers on a
+live or lapsed connection. In September they were <b>70% of all messages</b> on this surface &mdash;
+asking about broken net and recharges, not installs.</p>
+<div class="rl"><div class="rli"><div class="rlt"><b>Getting to the technician</b><br><span class="sub">3,176 &rarr; 5,406 customers &middot; frustrated 12.0% &rarr; 10.4% &middot; chips 45.3%</span></div><div class="rln">745 &rarr; 1065 msgs/day <span class="pos">+43%</span></div></div><div class="rli"><div class="rlt"><b>Slot breached</b><br><span class="sub">1,929 &rarr; 1,847 customers &middot; frustrated 31.6% &rarr; 30.2% &middot; chips 13.2%</span></div><div class="rln">514 &rarr; 352 msgs/day <span class="neg">-31%</span></div></div><div class="rli"><div class="rlt"><b>Just installed</b> <span class="sub">state retired 27 Aug</span><br><span class="sub">929 &rarr; 814 customers &middot; frustrated 14.8% &rarr; 9.5% &middot; chips 55.9%</span></div><div class="rln">186 &rarr; 113 msgs/day <span class="neg">-40%</span></div></div><div class="rli"><div class="rlt"><b>Address pending</b><br><span class="sub">602 &rarr; 1,291 customers &middot; frustrated 4.7% &rarr; 4.5% &middot; chips 5.6%</span></div><div class="rln">49 &rarr; 97 msgs/day <span class="pos">+99%</span></div></div><div class="rli"><div class="rlt"><b>Cancelled / refund</b><br><span class="sub">570 &rarr; 1,004 customers &middot; frustrated 18.7% &rarr; 24.1% &middot; chips 28.1%</span></div><div class="rln">74 &rarr; 121 msgs/day <span class="pos">+63%</span></div></div><div class="rli"><div class="rlt"><b>Existing base (not install)</b> <span class="sub">not install &mdash; excluded below</span><br><span class="sub">26,741 &rarr; 29,479 customers &middot; frustrated 29.0% &rarr; 30.8% &middot; chips 46.0%</span></div><div class="rln">4117 &rarr; 4157 msgs/day <span class="pos">+1%</span></div></div></div>
+<p>Everything after this section <b>excludes the existing base</b> and reports only the genuine
+booking-to-install population: 5,105 customers in August and 7,253 in September.
+Mixing the two is what made the first version of the July report wrong, and the imbalance is far larger now.</p>
+<div class="callout"><b>The existing base is a separate, larger problem</b>
+<p>29,479 customers, 30.8% frustrated, running at
+4157 messages a day and flat between windows. A quarter of it is “net not working”.
+It deserves its own report; it is out of scope for this one.</p></div></div></section>
+<section id="install-queue" class="sec"><div class="rail">The install queue<span class="rnote">Waiting customers, excluding breached slots.</span></div><div class="body">
+<h2>They are patient, and they only want one thing</h2>
+<p>5,406 customers sent 21,300 messages in September while waiting.
+Frustration is low &mdash; 10.4%, down from 12.0% &mdash; and more than half
+of everything they say is one question.</p>
+<div class="ledger"><div class="lhead"><span>Share of messages, install queue</span><span>13–30 Aug</span><span>1–20 Sep</span><span>Change</span></div><div class="lrow head"><span>Where is my install?</span><span class="lv" style="color:var(--aug)">54.7%</span><span class="lv" style="color:var(--sep)">54.7%</span><span class="ld ">+0.0pp</span></div><div class="lrow"><span>General help</span><span class="lv" style="color:var(--aug)">7.5%</span><span class="lv" style="color:var(--sep)">6.9%</span><span class="ld neg">-0.6pp</span></div><div class="lrow"><span>“ok / thanks”</span><span class="lv" style="color:var(--aug)">5.2%</span><span class="lv" style="color:var(--sep)">6.7%</span><span class="ld pos">+1.5pp</span></div><div class="lrow"><span>Asked again (bot repeated itself)</span><span class="lv" style="color:var(--aug)">7.6%</span><span class="lv" style="color:var(--sep)">6.3%</span><span class="ld neg">-1.3pp</span></div><div class="lrow"><span>Call the technician</span><span class="lv" style="color:var(--aug)">6.1%</span><span class="lv" style="color:var(--sep)">5.5%</span><span class="ld neg">-0.6pp</span></div><div class="lrow"><span>Cancel my booking</span><span class="lv" style="color:var(--aug)">3.5%</span><span class="lv" style="color:var(--sep)">3.1%</span><span class="ld neg">-0.4pp</span></div><div class="lrow"><span>Recharge</span><span class="lv" style="color:var(--aug)">1.9%</span><span class="lv" style="color:var(--sep)">2.9%</span><span class="ld pos">+1.0pp</span></div><div class="lrow"><span>What will it cost?</span><span class="lv" style="color:var(--aug)">1.9%</span><span class="lv" style="color:var(--sep)">2.2%</span><span class="ld pos">+0.3pp</span></div><div class="lrow"><span>Change my slot</span><span class="lv" style="color:var(--aug)">1.9%</span><span class="lv" style="color:var(--sep)">2.0%</span><span class="ld pos">+0.1pp</span></div></div>
+<p>“Where is my install?” is 54.7% of the tier on its own. This is a status
+problem, not a support problem: the queue is calm as long as things are visibly moving.</p>
+<p>Volume grew +43% per day while frustration fell,
+and messages per customer dropped from 4.22 to 3.94 &mdash; people are
+asking once and being satisfied more often than in August.</p></div></section>
+<section id="slot-breach" class="sec"><div class="rail">Slot breach<span class="rnote">The promised slot passed without a technician.</span></div><div class="body">
+<h2>The angriest tier &mdash; but it is shrinking</h2>
+<p>When a promised slot is missed, frustration roughly triples: 30.2% against
+10.4% in the ordinary queue. The important change is the size of the group.
+<b>514 messages a day in August, 352 in September</b> &mdash;
+down 31%.</p>
+<p>These customers barely use the suggestion chips &mdash; only 13.2% of their messages are
+taps, against 45.3% in the calm queue. <b>When people are angry they stop tapping and start
+typing</b>, which is exactly when the canned answers stop being able to help.</p>
+<h3>What they type, when they are frustrated</h3>
+<p>Phrases used by two or more different customers, scrubbed of numbers.</p>
+<ul class="quotes"><li>complaint</li><li>bad service</li><li>jaldi karo</li><li>cancel karo</li><li>jaldi kro</li><li>why delay</li><li>please fast</li><li>kab lagega</li></ul>
+<h3>Where the frustration actually sits</h3>
+<p>Across the whole install queue, sentiment is almost entirely determined by which intent fired:</p>
+<div class="ibs"><div class="ib"><div class="ibl">Net not working</div><div class="ibar"><i style="width:100.0%;background:var(--neg)"></i></div><div class="ibp">94.6%</div></div><div class="ib"><div class="ibl">General help</div><div class="ibar"><i style="width:82.0%;background:var(--neg)"></i></div><div class="ibp">77.6%</div></div><div class="ib"><div class="ibl">Asked again (bot repeated itself)</div><div class="ibar"><i style="width:48.9%;background:var(--neg)"></i></div><div class="ibp">46.3%</div></div><div class="ib"><div class="ibl">Where is my refund?</div><div class="ibar"><i style="width:27.0%;background:var(--neg)"></i></div><div class="ibp">25.5%</div></div><div class="ib"><div class="ibl">Cancel my booking</div><div class="ibar"><i style="width:12.8%;background:var(--neg)"></i></div><div class="ibp">12.1%</div></div><div class="ib"><div class="ibl">Change my slot</div><div class="ibar"><i style="width:10.8%;background:var(--neg)"></i></div><div class="ibp">10.2%</div></div><div class="ib"><div class="ibl">Where is my install?</div><div class="ibar"><i style="width:7.2%;background:var(--neg)"></i></div><div class="ibp">6.8%</div></div><div class="ib"><div class="ibl">Recharge</div><div class="ibar"><i style="width:1.9%;background:var(--neg)"></i></div><div class="ibp">1.8%</div></div></div>
+<p>Status checks run at 6.8% frustration;
+general “seekHelp” runs at 77.6%. A customer who
+reaches for the generic help door has usually already failed to find what they wanted.</p></div></section>
+<section id="cancels" class="sec"><div class="rail">Why bookings cancel<span class="rnote">Reason text recorded on the cancel event itself.</span></div><div class="body">
+<h2>Wiom cancels most of them; the customers who cancel are changing their reason</h2>
+<p>Of 4,171 September cancellations, <b>3,485 were cancelled by Wiom</b>
+as unserviceable and only 689 by the customer. The unserviceable share grew: we are
+taking a rising number of bookings in places we cannot serve.</p>
+<p>Among the customers who do cancel themselves, the mix has shifted sharply:</p>
+<div class="ledger"><div class="lhead"><span>Customer-cancel reason</span><span>13–30 Aug</span><span>1–20 Sep</span><span>Change</span></div><div class="lrow head"><span>Delay in getting net installed</span><span class="lv" style="color:var(--aug)">64.2%</span><span class="lv" style="color:var(--sep)">42.5%</span><span class="ld neg">-21.7pp</span></div><div class="lrow"><span>Other / free text</span><span class="lv" style="color:var(--aug)">16.0%</span><span class="lv" style="color:var(--sep)">27.1%</span><span class="ld pos">+11.1pp</span></div><div class="lrow"><span>Price seems too high</span><span class="lv" style="color:var(--aug)">6.8%</span><span class="lv" style="color:var(--sep)">14.2%</span><span class="ld pos">+7.4pp</span></div><div class="lrow"><span>Address wrong / changed</span><span class="lv" style="color:var(--aug)">1.8%</span><span class="lv" style="color:var(--sep)">2.6%</span><span class="ld pos">+0.8pp</span></div></div>
+<p><b>Delay fell from 64.2% to
+42.5%</b> &mdash; consistent with the faster installs and the shrinking
+slot-breach group. <b>Price more than doubled its share, 6.8% to
+14.2%.</b> That is a new signal and it is moving fast.</p>
+<div class="callout"><b>One reason code is an artifact</b>
+<p>“Wrote ‘cancel booking’ twice” (93 cases in September) is the
+system recording a double-tap, not a customer explanation. It is excluded from the table above.</p></div></div></section>
+<section id="silent" class="sec"><div class="rail">The silent cohort<span class="rnote">Correlation, not causation — read the caveat.</span></div><div class="body">
+<h2>The customers who never message us are the ones we lose</h2>
+<p>Install rate rises with every extra message a customer sends. In August it went from
+30.0% for those who never wrote to us up to 51.5% for the heaviest
+chatters; September follows the same curve.</p>
+<div class="mtxwrap"><div class="mtxcol"><div class="mtxhead"><span class="mname">13–30 August</span>
+<span class="mtot">n=4,376</span></div><div class="rl"><div class="rli"><div class="rlt">never &mdash; 8.2% of bookings</div><div class="rln">360 &middot; <b>30.0% installed</b></div></div><div class="rli"><div class="rlt">once &mdash; 8.8% of bookings</div><div class="rln">386 &middot; <b>34.2% installed</b></div></div><div class="rli"><div class="rlt">2–5 &mdash; 33.5% of bookings</div><div class="rln">1,467 &middot; <b>38.5% installed</b></div></div><div class="rli"><div class="rlt">6–20 &mdash; 40.4% of bookings</div><div class="rln">1,767 &middot; <b>45.0% installed</b></div></div><div class="rli"><div class="rlt">20+ &mdash; 9.0% of bookings</div><div class="rln">396 &middot; <b>51.5% installed</b></div></div></div></div>
+<div class="mtxcol"><div class="mtxhead"><span class="mname">1–20 September</span>
+<span class="mtot">n=7,045</span></div><div class="rl"><div class="rli"><div class="rlt">never &mdash; 14.4% of bookings</div><div class="rln">1,016 &middot; <b>26.4% installed</b></div></div><div class="rli"><div class="rlt">once &mdash; 15.8% of bookings</div><div class="rln">1,116 &middot; <b>26.7% installed</b></div></div><div class="rli"><div class="rlt">2–5 &mdash; 38.8% of bookings</div><div class="rln">2,735 &middot; <b>34.7% installed</b></div></div><div class="rli"><div class="rlt">6–20 &mdash; 27.5% of bookings</div><div class="rln">1,935 &middot; <b>46.9% installed</b></div></div><div class="rli"><div class="rlt">20+ &mdash; 3.4% of bookings</div><div class="rln">243 &middot; <b>46.5% installed</b></div></div></div></div></div>
+<p>The group that never makes contact <b>nearly doubled as a share of bookings, 8.2% to
+14.4%</b>, and it has the lowest install rate of any group. Overall contact rate fell from
+91.8% to 85.6%.</p>
+<div class="callout"><b>This is self-selection, not proof that chat causes installs</b>
+<p>Customers who are engaged enough to ask questions are also engaged enough to be home for a technician.
+The arrow could point either way, and a customer cancelled early as unserviceable has less opportunity to
+chat at all. What is safe to say is narrower: <b>the non-contacting cohort is growing and converts worst</b>,
+so it is the right group to go looking at.</p></div></div></section>
+<section id="chips" class="sec"><div class="rail">Chips &amp; verbatims<span class="rnote">Chip = identical text sent by 3+ different customers.</span></div><div class="body">
+<h2>One chip carries the queue</h2>
+<p>43.0% of post-booking messages are chip taps. In the install queue the roster is tiny and
+almost entirely one question.</p>
+<div class="rl"><div class="rli"><div class="rlt">मेरा स्टेटस बताओ</div><div class="rln">3,974 &rarr; 5,940 &middot; 4,271 people</div></div><div class="rli"><div class="rlt">Check my status</div><div class="rln">1,178 &rarr; 1,769 &middot; 1,209 people</div></div><div class="rli"><div class="rlt">टेक्नीशियन को कॉल करना है</div><div class="rln">528 &rarr; 744 &middot; 931 people</div></div><div class="rli"><div class="rlt">check my status</div><div class="rln">167 &rarr; 208 &middot; 165 people</div></div><div class="rli"><div class="rlt">Call the technician</div><div class="rln">125 &rarr; 152 &middot; 210 people</div></div><div class="rli"><div class="rlt">mera status batao</div><div class="rln">61 &rarr; 73 &middot; 75 people</div></div><div class="rli"><div class="rlt">पता बदलना है</div><div class="rln">38 &rarr; 51 &middot; 74 people</div></div><div class="rli"><div class="rlt">मेरा स्टेटस बता</div><div class="rln">28 &rarr; 41 &middot; 61 people</div></div><div class="rli"><div class="rlt">Mera status batao</div><div class="rln">40 &rarr; 27 &middot; 36 people</div></div><div class="rli"><div class="rlt">mera status btao</div><div class="rln">32 &rarr; 34 &middot; 41 people</div></div><div class="rli"><div class="rlt">kab tak lagega</div><div class="rln">30 &rarr; 36 &middot; 63 people</div></div><div class="rli"><div class="rlt">check status</div><div class="rln">33 &rarr; 31 &middot; 23 people</div></div></div>
+<p>“मेरा स्टेटस बताओ” and its English twin account for the overwhelming majority of all chip use by waiting
+customers, and both run at <b>0% frustration</b> &mdash; the chip works. The gap is what happens when the status
+it returns is not good news.</p>
+<h3>What waiting customers type when the chip did not settle it</h3>
+<ul class="quotes"><li>please fast</li><li>nhi aya hai</li><li>nahi aya</li><li>bad service</li><li>recharge nahi hai</li><li>lekin mujhe aaj hi lagwana hai</li></ul></div></section>
+<section id="what-to-fix" class="sec"><div class="rail">What to fix<span class="rnote">Ordered by size of the prize.</span></div><div class="body">
+<h2>Where the installs are actually being lost</h2>
+<div class="acts">
+<div class="act"><div class="num">01</div><div><h3>Fix partner assignment, not the app</h3>
+<div class="sig">38.6% of all bookings lost at one step &mdash; 2,746 customers in September</div>
+<p>Every app-side step runs at 99%+. Every field step after arrival runs above 93%. The single deteriorating
+transition is getting a partner to accept the job, and it is where nearly two thirds of all lost bookings
+go. No amount of chat or UI work moves this number.</p>
+<div class="do"><b>Change:</b> Treat assignment latency as the primary install KPI, and instrument why a
+confirmed slot fails to convert into an assigned technician &mdash; capacity, distance, or partner refusal.</div></div></div>
+
+<div class="act"><div class="num">02</div><div><h3>Stop taking bookings we cannot serve</h3>
+<div class="sig">3,485 of 4,171 September cancellations were Wiom cancelling as unserviceable</div>
+<p>These customers pay a booking fee, wait, and are then told no. It is the largest single outcome in the
+whole dataset and it is growing faster than bookings.</p>
+<div class="do"><b>Change:</b> Move the serviceability verdict before payment. Every one of these is a
+refund, a support contact, and a customer who will not come back.</div></div></div>
+
+<div class="act"><div class="num">03</div><div><h3>Watch the price signal</h3>
+<div class="sig">Price as a cancel reason: 6.8% &rarr; 14.2% of customer cancels</div>
+<p>Delay-driven cancels are falling as installs speed up. Price-driven cancels are rising to fill the gap,
+and the same shift shows in pre-booking chat, where cost is the top topic.</p>
+<div class="do"><b>Change:</b> Confirm against the PAYG pricing rollout before reading this as a pricing
+problem &mdash; but instrument it now, because it is the only cancel reason moving against us.</div></div></div>
+
+<div class="act"><div class="num">04</div><div><h3>Give the slot-breach group a non-typing path</h3>
+<div class="sig">30.2% frustrated &middot; only 13.2% chip use</div>
+<p>The tier is shrinking, which is the win. But those still in it have effectively no chips &mdash; they type,
+and typing is where the dead ends and the anger are.</p>
+<div class="do"><b>Change:</b> Ship breach-specific chips: a real new date, a callback, or a cancel with an
+immediate refund. Stop offering the same status chip that just told them bad news.</div></div></div>
+</div></div></section>
+<section id="limits" class="sec"><div class="rail">Limits<span class="rnote">Read these before quoting anything above.</span></div><div class="body">
+<h2>Review notes &amp; limits</h2>
+<div class="rl">
+<div class="rli"><div class="rlt"><b>August is 13&ndash;30, not 10&ndash;30.</b> The install states did not
+exist before 13 August. Every install-side figure uses the shorter window and is normalised per day or per
+customer.</div><div class="rln">data break</div></div>
+<div class="rli"><div class="rlt"><b>No per-state denominator.</b> Frustration and cancel rates are of
+customers who <em>chatted</em>, not of everyone in that state. There is still no outbound-workflow join to
+give a per-stage population.</div><div class="rln">structural</div></div>
+<div class="rli"><div class="rlt"><b>September installs are right-censored,</b> though only mildly &mdash;
+48.0% of installs complete within 24 hours.</div><div class="rln">timing</div></div>
+<div class="rli"><div class="rlt"><b><span class="mono">INSTALLATION_COMPLETED</span> was retired on 27
+August,</b> so the “just installed” tier is not comparable across windows.</div><div class="rln">data break</div></div>
+<div class="rli"><div class="rlt"><b><span class="mono">BOOKING_LOGS</span> is heavily duplicated by
+replication</b> &mdash; millions of rows against thousands of customers. Every funnel figure counts distinct
+mobiles, never rows.</div><div class="rln">method</div></div>
+<div class="rli"><div class="rlt"><b>The warehouse journey table is still stale.</b>
+<span class="mono">FCT_BOOKING_TO_INSTALL_JOURNEY</span> holds 98 rows from May 2026, unchanged since the
+July report, so the funnel is rebuilt from the raw event log.</div><div class="rln">source</div></div>
+<div class="rli"><div class="rlt"><b>Install-by-chat-volume is correlational.</b> See the caveat in that
+section; do not read it as “chatting causes installs”.</div><div class="rln">inference</div></div>
+<div class="rli"><div class="rlt"><b>Sentiment is a model label,</b> and only the customer half of each
+conversation is stored. This measures what people said, not whether they were helped.</div><div class="rln">measurement</div></div>
+</div></div></section>
+<section id="glossary" class="sec"><div class="rail">Glossary<span class="rnote"></span></div><div class="body">
+<h2>Words used here</h2><div class="gloss">
+<div class="gterm"><dt>Booked</dt><dd>A <span class="mono">booking_confirmed</span> event for a valid mobile
+inside the window. 4,376 in 13&ndash;30 Aug, 7,045 in 1&ndash;20 Sep.</dd></div>
+<div class="gterm"><dt>Install queue</dt><dd>Customers in a genuine booking-to-install state, excluding
+breached slots and excluding the existing customer base.</dd></div>
+<div class="gterm"><dt>Slot breached</dt><dd><span class="mono">CX_CONFIRMED_BUT_SLOT_BREACHED</span> and
+<span class="mono">ROHIT_ASSIGNED_BUT_SLOT_BREACHED</span> &mdash; a promised slot passed without a
+technician.</dd></div>
+<div class="gterm"><dt>Existing base</dt><dd>Active, expired, removed and pickup states &mdash; customers with a
+connection, not a booking. Excluded from every install figure.</dd></div>
+<div class="gterm"><dt>Frustrated</dt><dd>Share of messages the production model tagged
+<span class="mono">FRUSTRATED</span> or <span class="mono">ANGRY</span>.</dd></div>
+<div class="gterm"><dt>Chip</dt><dd>A suggested reply. Detected as identical message text sent by three or
+more different customers.</dd></div>
+<div class="gterm"><dt>Contact rate</dt><dd>Share of booked customers who appear anywhere in post-booking
+chat. A floor, since customers who chat after the window are not counted.</dd></div>
+</div>
+<div class="colophon"><p>Sources: <span class="mono">PROD_DB.DYNAMODB_READ.INTENT_CLASSIFICATIONS</span>
+(post-booking rows = <span class="mono">APP_PAGE_NAME IS NULL AND USER_STATE IS NOT NULL</span>) and
+<span class="mono">PROD_DB.PUBLIC.BOOKING_LOGS</span> for the funnel and cancel reasons. Timestamps shifted
++5:30 to IST. <span class="mono">_FIVETRAN_DELETED</span> deliberately not filtered &mdash; DynamoDB TTL is 7
+days. All verbatims limited to phrases used by 2+ distinct customers and scrubbed of phone numbers and long
+digit strings. Built 21 September 2026.</p></div></div></section>
+</div></body></html>
