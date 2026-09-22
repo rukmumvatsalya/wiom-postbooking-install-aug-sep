@@ -319,6 +319,10 @@ bottleneck is a single step.</p>
 ends in a live connection fell from <b>41.2% to 36.0%</b>. Almost the entire loss sits in one place:
 <b>slot confirmed &rarr; technician assigned</b>, which now sheds 38.6% of all
 bookings, up from 32.9%. Everything before that step runs at 99%+.</p>
+<p>September also switched the booking flow: the J4 variants went from almost nothing to
+39% of bookings at a &#8377;10 fee. <b>That is not the
+cause.</b> Like-for-like on bookings with equal runway, J4 converts +4.9pp <em>better</em> than the
+variants it replaced; every flow got worse within itself, which is what a capacity ceiling looks like.</p>
 <p>The good news is real. The slot-breach population &mdash; the angriest group in the last report &mdash; shrank
 31% per day, and installs now complete faster
 (25.1h to 24.7h median). The bad news is that two quieter
@@ -329,7 +333,7 @@ problems grew in its place: cancel-and-refund chatter, and a growing population 
 <div class="key"><div class="klab">Slot-breach messages<br>per day</div><div class="kfig"><span style="color:var(--aug)">514</span><span class="arw">&rarr;</span><span style="color:var(--sep)">352</span></div><div class="kdelta pos">-31%</div><div class="knote">The last report’s worst tier, easing</div></div>
 <div class="key"><div class="klab">Cancel / refund messages<br>per day</div><div class="kfig"><span style="color:var(--aug)">74</span><span class="arw">&rarr;</span><span style="color:var(--sep)">121</span></div><div class="kdelta neg">+63%</div><div class="knote">Frustration here rose to 24.1%</div></div>
 </div></div>
-<nav class="toc"><h3>Contents &mdash; jump to a section</h3><div class="tocgrid"><a href="#scope"><span class="n">01</span>Scope &amp; a data break</a><a href="#funnel"><span class="n">02</span>The funnel</a><a href="#the-step"><span class="n">03</span>The one step</a><a href="#who-chats"><span class="n">04</span>Who is chatting</a><a href="#install-queue"><span class="n">05</span>The install queue</a><a href="#slot-breach"><span class="n">06</span>Slot breach</a><a href="#cancels"><span class="n">07</span>Why bookings cancel</a><a href="#silent"><span class="n">08</span>The silent cohort</a><a href="#chips"><span class="n">09</span>Chips &amp; verbatims</a><a href="#what-to-fix"><span class="n">10</span>What to fix</a><a href="#limits"><span class="n">11</span>Limits</a><a href="#glossary"><span class="n">12</span>Glossary</a></div></nav>
+<nav class="toc"><h3>Contents &mdash; jump to a section</h3><div class="tocgrid"><a href="#scope"><span class="n">01</span>Scope &amp; a data break</a><a href="#funnel"><span class="n">02</span>The funnel</a><a href="#the-step"><span class="n">03</span>The one step</a><a href="#variants"><span class="n">04</span>By booking variant</a><a href="#who-chats"><span class="n">05</span>Who is chatting</a><a href="#install-queue"><span class="n">06</span>The install queue</a><a href="#slot-breach"><span class="n">07</span>Slot breach</a><a href="#cancels"><span class="n">08</span>Why bookings cancel</a><a href="#silent"><span class="n">09</span>The silent cohort</a><a href="#chips"><span class="n">10</span>Chips &amp; verbatims</a><a href="#what-to-fix"><span class="n">11</span>What to fix</a><a href="#limits"><span class="n">12</span>Limits</a><a href="#glossary"><span class="n">13</span>Glossary</a></div></nav>
 <section id="scope" class="sec"><div class="rail">Scope &amp; a data break<span class="rnote">The August window starts 13 Aug, not 10. This is forced by the data.</span></div><div class="body">
 <h2>Why August starts on the 13th</h2>
 <div class="callout"><b>The install-journey states did not exist before 13 August 2026</b>
@@ -373,6 +377,53 @@ both windows. It is a big loss but not a growing one. The assignment step is the
 <p>Once a technician actually arrives, the job almost always completes: 95% of August arrivals and 93% of September arrivals ended in an install. Field execution is not the constraint; getting a partner to accept the job is.</p>
 <div class="ledger"><div class="lhead"><span>Install speed, completed installs only</span><span>13–30 Aug</span><span>1–20 Sep</span><span>Change</span></div><div class="lrow head"><span>Median booking &rarr; installed</span><span class="lv" style="color:var(--aug)">25.1h</span><span class="lv" style="color:var(--sep)">24.7h</span><span class="ld pos">-2%</span></div><div class="lrow"><span>Done inside 24 hours</span><span class="lv" style="color:var(--aug)">46.7%</span><span class="lv" style="color:var(--sep)">48.0%</span><span class="ld pos">+1.3pp</span></div><div class="lrow"><span>Took more than 3 days</span><span class="lv" style="color:var(--aug)">17.3%</span><span class="lv" style="color:var(--sep)">13.8%</span><span class="ld pos">-3.5pp</span></div></div>
 <p>For the customers we do install, the experience got faster on every measure.</p></div></section>
+<section id="variants" class="sec"><div class="rail">By booking variant<span class="rnote">GROUP_NAME on the booking record. Read the censoring note.</span></div><div class="body">
+<h2>September switched the booking flow to J4 &mdash; and that is not why installs fell</h2>
+<p>Bookings carry a variant on the booking record. The September cohort is a different mix from August:
+the <b>J4 pair (J4N and J4R) went from almost nothing to 39% of
+all bookings</b>, while the high-converting I and I1 variants all but disappeared.</p>
+<div class="rl">
+<div class="rli"><div class="rlt"><b>I3</b><br><span class="sub">share of bookings 19.6% &rarr; 18.2% &middot; fee &#8377;25</span></div><div class="rln">856 &rarr; 1,285 &middot; installed 62.0% &rarr; 51.4%</div></div><div class="rli"><div class="rlt"><b>J3</b><br><span class="sub">share of bookings 25.0% &rarr; 10.9% &middot; fee &#8377;45</span></div><div class="rln">1,092 &rarr; 766 &middot; installed 62.3% &rarr; 48.2%</div></div><div class="rli"><div class="rlt"><b>J4N</b> <span class="sub">new in Sep</span><br><span class="sub">share of bookings 0.0% &rarr; 17.7% &middot; fee &#8377;10</span></div><div class="rln">0 &rarr; 1,245 &middot; installed &mdash; &rarr; 45.5%</div></div>
+<div class="rli"><div class="rlt"><b>J4R</b> <span class="sub">new in Sep</span><br><span class="sub">share of bookings 0.0% &rarr; 21.1% &middot; fee &#8377;10</span></div><div class="rln">1 &rarr; 1,483 &middot; installed &mdash; &rarr; 43.3%</div></div><div class="rli"><div class="rlt"><b>I</b><br><span class="sub">share of bookings 11.8% &rarr; 0.4% &middot; fee &#8377;25</span></div><div class="rln">518 &rarr; 31 &middot; installed 63.3% &rarr; 54.8%</div></div><div class="rli"><div class="rlt"><b>I1</b><br><span class="sub">share of bookings 5.6% &rarr; 0.2% &middot; fee &#8377;25</span></div><div class="rln">243 &rarr; 17 &middot; installed 63.8% &rarr; 64.7%</div></div>
+<div class="rli"><div class="rlt"><b>No variant set</b> <span class="sub">see below</span><br><span class="sub">share of bookings 36.1% &rarr; 31.4% &middot; fee &#8377;23</span></div><div class="rln">1,579 &rarr; 2,210 &middot; installed 3.6% &rarr; 11.9%</div></div>
+</div>
+<p>The variants are also price tiers. Median booking fee is <b>&#8377;10 on J4N and J4R</b>, &#8377;25 on the
+I family, and &#8377;45 on J3. September therefore moved a large share of bookings onto a much lower
+commitment at the point of booking.</p>
+
+<h3>The trap: J4 bookings are younger, not worse</h3>
+<div class="callout"><b>A naive variant comparison gets this backwards</b>
+<p>Compared head-on across all of September, J4 looks worse &mdash; 44.3% installed against
+50.2% for I3 and J3. But J4 ramped late: its median booking lands on <b>day
+16 of the month against day 6&ndash;9
+for the incumbents</b>, and 25.1% of J4R bookings are still pending against
+1.8% of J3. It is censoring, not performance.</p>
+<p>Restricting to bookings made <b>1&ndash;10 September</b>, so every variant has at least ten days of runway,
+reverses the finding: <b>J4 installs at 54.1% against 49.2% for the incumbents</b>
+&mdash; +4.9pp in J4&rsquo;s favour, on n=377 and n=1,434.</p></div>
+<div class="ibs"><div class="ib"><div class="ibl">J4 — all September (censored)</div><div class="ibar"><i style="width:71.2%;background:var(--sep)"></i></div><div class="ibp">44.3%</div></div><div class="ib"><div class="ibl">I3 + J3 — all September</div><div class="ibar"><i style="width:80.7%;background:var(--sep)"></i></div><div class="ibp">50.2%</div></div><div class="ib"><div class="ibl">J4 — booked 1–10 Sep only</div><div class="ibar"><i style="width:87.0%;background:var(--sep)"></i></div><div class="ibp">54.1%</div></div><div class="ib"><div class="ibl">I3 + J3 — booked 1–10 Sep only</div><div class="ibar"><i style="width:79.1%;background:var(--sep)"></i></div><div class="ibp">49.2%</div></div><div class="ib"><div class="ibl">I3 + J3 — August</div><div class="ibar"><i style="width:100.0%;background:var(--sep)"></i></div><div class="ibp">62.2%</div></div></div>
+
+<h3>So what did cause the decline?</h3>
+<p>Every variant that existed in both windows got worse <em>within itself</em>. On the variants present in
+both, holding the mix constant at August&rsquo;s still gives 51.9% against August&rsquo;s
+62.5% &mdash; a <b>-10.6pp within-variant fall</b>, against only
+-1.5pp from the change in mix.</p>
+<p>That is the same conclusion the funnel reached from the other direction: this is a capacity problem at
+the assignment step, hitting every flow at once as volume rose +45%
+per day. <b>Changing the booking flow did not cause it, and J4 is mildly helping.</b></p>
+
+<h3>A third of bookings carry no variant at all &mdash; and they are the unserviceable ones</h3>
+<p>3,789 bookings across both windows have no <span class="mono">GROUP_NAME</span>. They are not a
+random slice: <b>96.9% of them cancel and 74.3% are cancelled by Wiom as
+unserviceable</b>. Only 40.7% ever reach a technician assignment and 8.5% install.</p>
+<p>They pay the fee (99.8% do), give an address, confirm a slot &mdash; and then get
+told no. This group alone is 31.4% of September bookings and is the single largest drag on the
+headline install rate. Excluding it, the attributed cohort installs at <b>62.5% in August and
+46.9% in September</b>.</p>
+<div class="callout"><b>Why the variant is blank is unconfirmed</b>
+<p>The most likely reading is that these bookings are cancelled upstream before a variant is ever assigned,
+which would make the blank a <em>symptom</em> of unserviceability rather than a cause of anything. Worth
+confirming with the booking-service owners before acting on it.</p></div></div></section>
 <section id="who-chats" class="sec"><div class="rail">Who is chatting<span class="rnote">Six tiers by what the customer is actually there for.</span></div><div class="body">
 <h2>Three quarters of “post-booking” chat is not about installation at all</h2>
 <p>This chat surface is keyed on customer state, and the largest states by far are existing customers on a
@@ -470,7 +521,9 @@ confirmed slot fails to convert into an assigned technician &mdash; capacity, di
 <div class="act"><div class="num">02</div><div><h3>Stop taking bookings we cannot serve</h3>
 <div class="sig">3,485 of 4,171 September cancellations were Wiom cancelling as unserviceable</div>
 <p>These customers pay a booking fee, wait, and are then told no. It is the largest single outcome in the
-whole dataset and it is growing faster than bookings.</p>
+whole dataset and it is growing faster than bookings. The same group shows up from the other side as the
+3,789 bookings with no variant set, 96.9% of which cancel &mdash; strip them out and the
+install rate is 46.9%, not 36.0%.</p>
 <div class="do"><b>Change:</b> Move the serviceability verdict before payment. Every one of these is a
 refund, a support contact, and a customer who will not come back.</div></div></div>
 
@@ -507,6 +560,12 @@ mobiles, never rows.</div><div class="rln">method</div></div>
 <div class="rli"><div class="rlt"><b>The warehouse journey table is still stale.</b>
 <span class="mono">FCT_BOOKING_TO_INSTALL_JOURNEY</span> holds 98 rows from May 2026, unchanged since the
 July report, so the funnel is rebuilt from the raw event log.</div><div class="rln">source</div></div>
+<div class="rli"><div class="rlt"><b>Variant comparisons are censoring-sensitive.</b> J4 ramped late in
+September, so any all-month variant comparison understates it. The like-for-like cut (booked 1&ndash;10 Sep)
+is the one to quote.</div><div class="rln">timing</div></div>
+<div class="rli"><div class="rlt"><b>Variant is attached by matching the booking record on mobile</b> and
+taking the nearest booking in time. Roughly a third of confirmed bookings have no
+<span class="mono">GROUP_NAME</span> at all.</div><div class="rln">method</div></div>
 <div class="rli"><div class="rlt"><b>Install-by-chat-volume is correlational.</b> See the caveat in that
 section; do not read it as “chatting causes installs”.</div><div class="rln">inference</div></div>
 <div class="rli"><div class="rlt"><b>Sentiment is a model label,</b> and only the customer half of each
@@ -523,6 +582,9 @@ breached slots and excluding the existing customer base.</dd></div>
 technician.</dd></div>
 <div class="gterm"><dt>Existing base</dt><dd>Active, expired, removed and pickup states &mdash; customers with a
 connection, not a booking. Excluded from every install figure.</dd></div>
+<div class="gterm"><dt>Booking variant</dt><dd><span class="mono">GROUP_NAME</span> on the booking
+record &mdash; I, I1, I3, J3, J4N, J4R and a long tail. Also a price tier: &#8377;10 on J4, &#8377;25 on the I
+family, &#8377;45 on J3. Unrelated to the <span class="mono">j2_</span> chat page names.</dd></div>
 <div class="gterm"><dt>Frustrated</dt><dd>Share of messages the production model tagged
 <span class="mono">FRUSTRATED</span> or <span class="mono">ANGRY</span>.</dd></div>
 <div class="gterm"><dt>Chip</dt><dd>A suggested reply. Detected as identical message text sent by three or

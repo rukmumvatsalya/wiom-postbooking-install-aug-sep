@@ -72,6 +72,30 @@ the July report, because the existing-customer population now dominates the surf
 **The existing base is ~70% of all messages on this surface and is excluded from every install figure.**
 Mixing it in is what made the first version of the July report wrong; the imbalance is far larger now.
 
+## Booking variant attribution
+
+Variant comes from `GROUP_NAME` on `PROD_DB.BOOKING_SERVICE_JAVA_PUBLIC.BOOKING`. It is attached to the
+confirmed-booking cohort by matching on `MOBILE` and taking the booking record nearest in time (matches
+beyond 720 hours are discarded). That table is replication-duplicated like `BOOKING_LOGS`, so it is
+collapsed with `GROUP BY ID` before joining.
+
+**`GROUP_NAME` is not the `j2_` chat page prefix.** Booking variant `J2` was effectively retired over these
+windows — 302 bookings in the August window, 6 in September — while the `j2_*` chat pages carried 6,869
+messages in September. Of chat users that could be joined to a booking, those on `j2_*` pages spread across
+I3, J4N, J4R and J3, with exactly one in variant `J2`. The prefix is a screen-set name.
+
+**Variant comparisons are censoring-sensitive and this one reverses.** J4 ramped late in September (median
+booking day 16 against 6–9 for I3/J3; 23–25% of J4 bookings still pending against 1.8% of J3). Any
+all-month comparison understates it. The quotable cut is bookings made **1–10 September**, where every
+variant has at least ten days of runway.
+
+**Roughly a third of confirmed bookings have no `GROUP_NAME`.** They are not random: 96.9% cancel, 74.3% as
+`cops_unserviceable`, only 40.7% ever reach assignment. The likely reading is that they are cancelled
+upstream before a variant is assigned, making the blank a symptom of unserviceability rather than a cause —
+**unconfirmed, worth checking with the booking-service owners.**
+
+Fee tiers by variant (median): J4N/J4R ₹10, I/I1/I3 ₹25, J3/C/D/E ₹45.
+
 ## Metric definitions
 
 - **Frustrated** — share of messages tagged `FRUSTRATED` or `ANGRY` by the production model.
